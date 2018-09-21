@@ -13,6 +13,11 @@ import time
 END_POST = '[正妹] 新年 第889彈'
 
 
+def get_date(soup):
+    date_string = soup.find('div', 'date').string.strip()
+    return date_string
+
+
 def check_date_from_page(cur_article):
     """
 
@@ -23,7 +28,7 @@ def check_date_from_page(cur_article):
         must find last
         """
         # get date
-        date_string = soup.find('div', 'date').string.strip()
+        date_string = get_date(soup)
         date = datetime.datetime.strptime(date_string, "%m/%d")
         if date.month != 12 or date.day != 31:
             return False
@@ -69,11 +74,6 @@ def get_prev_page_url(root_soup):
 ####### second part of function #########
 
 
-def get_date(soup):
-    date_string = soup.find('div', 'date').string.strip()
-    return date_string
-
-
 def get_title(cur_soup):
     if cur_soup.find('div', 'title').find('a'):
         title = ''
@@ -105,7 +105,7 @@ def write_info(all_file, pop_file, soup):
     title = get_title(soup)
     if check_title_string(title):
         # grab date, topic, url
-        date_temp = soup.find('div', 'date').string.strip()
+        date_temp = get_date(soup)
         # remove /
         date = re.sub(r'[/]', '', date_temp)
         # title

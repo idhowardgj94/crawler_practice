@@ -1,8 +1,6 @@
 # crawler_practice
 this practice is just a home work for NCTU, TW.
 
-應該是也不會太高分啦…
-
 # 知道的bug #
 
 乃木坂[email protected],https://www.ptt.cc/bbs/Beauty/M.1504367479.A.63D.html
@@ -10,6 +8,7 @@ in https://www.ptt.cc/bbs/Beauty/index2232.html today..
 
 * 網頁版列表會保謢email，所以output出來的值會是保謢的值
 
+程式片段
 ```html
 <div class="r-ent">
 	<div class="nrec"><span class="hl f3">18</span></div>
